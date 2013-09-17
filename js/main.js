@@ -18,8 +18,8 @@
 			// { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 			{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 			{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-			{ src: 'socket.io/socket.io.js', async: true, condition: function() { return !!document.body.classList; } },
-			{ src: '../reveal.js/plugin/notes-server/client.js', async: true, condition: function() { return !!document.body.classList; } }
+			// { src: 'socket.io/socket.io.js', async: true, condition: function() { return !!document.body.classList; } },
+			// { src: '../reveal.js/plugin/notes-server/client.js', async: true, condition: function() { return !!document.body.classList; } }
 			// { src: '../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
 			// { src: '../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 		]
