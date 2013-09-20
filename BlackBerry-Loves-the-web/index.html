@@ -33,67 +33,63 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>BlackBerry Loves the Web</h1>
-					<h3>Jorge del Casar • <a href="http://twitter.com/JorgeCasar">@JorgeCasar</a></h3>
-					<h3>Sharif F. Penniman • <a href="http://twitter.com/sfpenniman">@sfpenniman</a></h3>
+					<header>
+						<h1>BlackBerry Loves the Web</h1>
+						<p>Jorge del Casar • <a href="http://twitter.com/JorgeCasar">@JorgeCasar</a></p>
+						<p>Sharif F. Penniman • <a href="http://twitter.com/sfpenniman">@sfpenniman</a></p>
+					</header>
 				</section>
 
 				<section>
-					<section id="platform">
-						<h2>The Platform</h2>
-						<img src="images/platform.png">
-
-						<aside class="notes">
-							<p>Every good app needs a strong platform.</p>
-						</aside>
+					<section id="platform" data-background-image="images/platform.jpg" class="dark">
+						<h1>The Platform</h1>
+						<p>Every good app needs <br/>a strong platform</p>
 					</section>
 
 					<section id="platform--HTML5test">
-						<h2>HTML5Test</h2>
-						<img src="images/bb10html5test.png"/>
+						<h1>HTML5 Test</h1>
+						<p><img src="images/qr-html5test.png"/></p>
+						<p><small><a href="http://html5test.com">http://HTML5Test.com</a></small></p>
 
+
+						<aside class="notes">
+							<p>Test by yourself in your own divece.</p>
+							<p>Mine is better, right?</p>
+						</aside>
+					</section>
+
+					<section id="platform--HTML5-test-BlackBerry10" class="center">
+						<img src="images/bb10-html5test.png">
+						<img src="images/BlackBerry-Certified.png" class="fragment" style="position:absolute; right:10%"/>
 						<aside class="notes">
 							<p>Right at the top of all mobile browsers for HTML5 compatibility</p>
 							<p>Better than all desktop browsers</p>
 						</aside>
 					</section>
-					<section id="platform--test-HTML5test">
-						<h2>Test yours in <a href="http://html5test.com">HTML5Test.com</a></h2>
-						<img src="images/qr-html5test.png"/>
-
-						<aside class="notes">
-							<p>Test by yourself in your own divece.</p>
-							<p>Mine is better, right?</p>
-						</aside>
-					</section>
 
 					<section id="platform--ringmark">
-						<h2>Ringmark</h2>
-						<img src="images/ringmark.png"/>
+						<h1>Ringmark</h1>
+						<img src="images/qr-rng.png"/>
+						<p><small><a href="http://rng.io">http://rng.io</a></small></p>
 
 						<aside class="notes">
-							A web-based test suite for capabilities that modern web apps require.
-							<p/>
-							The first vendor mobile browser to pass ringmark ring 1!
+							<p>A web-based test suite for capabilities that modern web apps require.</p>
 						</aside>
 					</section>
-					<section id="platform--test-ringmark">
-						<h2>Test yours in <a href="http://rng.io">rng.io</a></h2>
-						<img src="images/qr-rng.png"/>
-
+					<section id="platform--test-ringmark" class="center">
+						<img src="images/bb10-ringmark.png">
+						<img src="images/BlackBerry-Certified.png" class="fragment" style="position:absolute; right:10%"/>
 						<aside class="notes">
-							<p>Test by yourself in your own divece.</p>
-							<p>Mine is better, right?</p>
+							<p>The first vendor mobile browser to pass ringmark ring 1!</p>
 						</aside>
 					</section>
 
 				</section>
 
 				<section>
-					<section id="browser">
-						<h2>Browser</h2>
-						<p>The browser app is built in HTML5/CSS/JS</p>
-						<img src="images/dogfood.jpg">
+					<section id="browser" data-background="http://www.quenosvamos.com/QNV/images/actividades/fotos/surf.jpg" class="dark">
+						<h1>Browser</h1>
+						<p>The browser app is built in HTML5</p>
 
 						<aside class="notes">
 							<p>Prestige built-in app with web technologies</p>
@@ -101,9 +97,8 @@
 						</aside>
 					</section>
 				
-					<section id="remote-web-inspector">
-						<h2>Remote Web Inspector</h2>
-						<img src="images/webinspect.png">
+					<section id="remote-web-inspector" data-background="images/webinspect.png">
+						<h1>Remote Web Inspector</h1>
 
 						<aside class="notes">
 							<p>Focus on quality tooling and debugging</p>
@@ -111,9 +106,9 @@
 						</aside>
 					</section>
 
-					<section id="apache-cordova">
-						<h2>Apache Cordova</h2>
-						<p>Center of gravity for cross-platform mobile application development</p>
+					<section id="apache-cordova" data-background="images/cordova.png" data-background-size="auto" data-background-position="85% 30%">
+						<h1>Apache Cordova</h1>
+						<p>Center of gravity for cross-platform<br>mobile application development</p>
 						<ul>
 							<li class="fragment">BlackBerry has committers on the project</li>
 							<li class="fragment">BlackBerry 10 is a core platform</li>
@@ -128,9 +123,9 @@
 						</aside>
 					</section>
 
-					<section id="apache-cordova--blackberry-specific-plugins">
-						<h2>BlackBerry Specific Plugins</h2>
-						<a href="https://github.com/blackberry/cordova-blackberry-plugins/">https://github.com/blackberry/cordova-blackberry-plugins/</a>
+					<section id="apache-cordova--blackberry-specific-plugins" data-background="images/cordova.png" data-background-size="auto" data-background-position="85% 30%">
+						<h1>BlackBerry Specific Plugins</h1>
+						<p><small><a href="https://github.com/blackberry/cordova-blackberry-plugins/">https://github.com/blackberry/cordova-blackberry-plugins/</a></small></p>
 						
 						<aside class="notes">
 							<ul>
@@ -143,35 +138,60 @@
 					</section>
 				</section>
 
-				<section id="call-to-action">
-					<h2>Call to action</h2>
-					<p>It is time to start thinking beyond the Phone</p>
-					<img src="images/question.jpg">
+				<section id="call-to-action" class="right dark" data-background="images/uncle_sam.jpg">
+					<h1>Call to action</h1>
+					<p>It is time to start thinking<br>beyond the Phone</p>
 
 					<aside class="notes">
 						
 					</aside>
 				</section>
+
+				<section>
+					<section id="new-horizons" class="right" data-background="images/new-horizons.jpg">
+						<h2 class="blackberr10ifyTitle">New horizons for<br>Apache Cordova</h2>
+						<p>Many industries are looking at HTML5<br>as the platform of choice</p>
+						<p>Many also want to develop an<br>application ecosystem</p>
+						<aside class="notes">
+							<p>Automotive</p>
+							<p>Medical</p>
+						</aside>
+					</section>
+
+					<section id="QNX-car" class="right dark" data-background="images/QNX-car.jpg">
+						<h1>QNX Car</h1>
+						<h5>Working on<br><b>QNX Car</b><br>as a supported<br>platform within<br><b>Apache Cordova</b></h5>
+
+						<aside class="notes">
+							<p>Think about how much time you spend in your car</p>
+							<p>Within 5 years we will have true driver-less cars</p>
+							<p>What are you going to do while sitting in your car?</p>
+							<p>At BlackBerry Live we demoed a BBM Video chat between a car and a BB10 device</p>
+							<p>Target your app to automotive</p>
+							<p>Consider regulatory issues</p>
+							<p>This is just the beginning of what the true mobile computing world will be</p>
+						</aside>
+					</section>
+				</section>
+
 				<section>
 					<section id="BlackBerry-Enterprise-Service-10">
 						<h1>BlackBerry Enterprise Service 10</h1>
 					</section>
-					<section id="BlackBerry-Enterprise-Service-10--Managing-Mobile-Devices-MDM">
-						<h2>A Single Platform for Managing Mobile Devices</h2>
-						<img src="images/BES10-mdm.png" alt="BlackBerry Managing Mobile Devices" style="float:right; width:40%;"/>
-						<ul style="float:left; width:60%">
+					<section id="BlackBerry-Enterprise-Service-10--Managing-Mobile-Devices-MDM" data-background="images/bes10-mdm.png" data-background-size="auto" data-background-position="right bottom">
+						<h3 class="blackberr10ifyTitle">A Single Platform for MDM</h3>
+						<ul>
 							<li>Next generation enterprise mobility solution</li>
+							<li>Application deployment across platforms</li>
+							<li>Simplified management</li>
+							<li>Single console</li>
 							<li>Mobile Device Management (MDM) of:
 							<ul>
-								<li>BlackBerry smartphones</li>
-								<li>BlackBerry PlayBook tablets</li>
+								<li>BlackBerry</li>
 								<li>iOS</li>
 								<li>Android</li>
 							</ul>
 							</li>
-							<li>Simplified management</li>
-							<li>Application deployment across platforms</li>
-							<li>Single console</li>
 						</ul>
 						<aside class="notes">
 							<p>When considering enterprise app development on BlackBerry, we think there are two key areas to consider – firstly that enterprise apps have unique requirements and to treat enterprise app development as just another app project is to risk expensive failure, and secondly that web technology is, we think, likely to be the best approach for most enterprises.</p>
@@ -191,26 +211,17 @@
 						</aside>
 					</section>
 
-					<section id="BlackBerry-Enterprise-Service-10--apps">
-						<h3>Has what Enterprise Apps need!</h3>
-						<h4>Enterprise apps have unique requirements</h4>
-						<img src="images/BES10-apps.png" alt="BlackBerry World Enterprise" style="float:right; width:35%;"/>
-						<ul style="float:left; width:65%">
-							<li class="fragment"><b>Behind the firewall connectivity</b></br>
-								Access to systems and data to populate and sync with  on-device app and field updates
-							</li>
-							<li class="fragment"><b>Push communications</b></br>
-								Critical for time sensitive information as well as ensuring the most recent content is available to the user when working in offline mode
-							</li>
-							<li class="fragment"><b>Enterprise app management</b></br>
-								Deployment and management of mandatory and optional apps to users
-							</li>
+					<section id="BlackBerry-Enterprise-Service-10--apps" data-background="images/bes10-apps.png" data-background-size="auto" data-background-position="right bottom">
+						<h1>Has what Enterprise Apps need!</h1>
+						<ul>
+							<li>Behind the firewall connectivity</li>
+							<li>Push communications</li>
+							<li>Enterprise app management</li>
 						</ul>
 					</section>
-					<section id="BlackBerry-Enterprise-Service-10--push">
-						<h2>BlackBerry Push</h2>
-						<img src="images/BES10-push.png" alt="BlackBerry Push Infrastructure" style="float:right; width:30%;"/>
-						<ul style="float:left; width:70%">
+					<section id="BlackBerry-Enterprise-Service-10--push" data-background="images/bes10-push.png" data-background-size="auto" data-background-position="right bottom">
+						<h1>BlackBerry Push</h1>
+						<ul>
 							<li>You can use the Push Service to develop a push-enabled application that runs on a BlackBerry device, and that receives push messages from a Push Initiator.</li>
 							<li>Push Initiator can deliver up to 8 KB of content (images, text, or audio) through the BlackBerry Enterprise Service 10.</li>
 							<li>Larger than 8KB – Poke and Pull</li>
@@ -218,11 +229,11 @@
 						</ul>
 					</section>
 					<section id="BlackBerry-Enterprise-Service-10--security">
-						<h2>BlackBerry Secure Infrastructure</h2>
+						<h3 class="blackberr10ifyTitle">BlackBerry Secure Infrastructure</h3>
 						
 						<ul>
 							<li>
-								<img src="images/BES10-security.png" alt="BlackBerry Secure Infrastructure" style="float:right; width:40%;"/>
+								<img src="images/bes10-security.png" alt="BlackBerry Secure Infrastructure" style="float:right; width:40%;"/>
 								<b>Delivering simplicity and security</b>
 							</li>
 							<li>Secure connectivity to back-end services and corporate applications without the requirement and associated expenses of separate VPN service</li>
@@ -231,9 +242,8 @@
 						</ul>
 					</section>
 
-					<section id="BlackBerry-Enterprise-Service-10--blackberry-world">
-						<h2>BlackBerry World for Work</h2>
-						<img src="images/BES10-bbw.png" alt="BlackBerry Secure Infrastructure" style="float:right; width:40%;"/>
+					<section id="BlackBerry-Enterprise-Service-10--blackberry-world" data-background="images/bes10-bbw.png" data-background-position="bottom right" data-background-size="auto">
+						<h3 class="blackberr10ifyTitle">BlackBerry World for Work</h3>
 						<ul style="float:left; width:60%">
 							<li><b>Work Space</b><ul>
 								<li>IT Admins can deploy, manage and secure mandatory and recommended apps to users through the BlackBerry World for Work corporate app storefront</li>
@@ -251,42 +261,7 @@
 					</section>
 				</section>
 
-				<section>
-					<section id="new-horizons">
-						<h2>New horizons for<br>Apache Cordova</h2>
-						<p>
-							Many industries are looking at HTML5 as the platform of choice.
-						</p>
-						<p class="fragment">
-							Many also want to develop an application ecosystem
-						</p>
-						<aside class="notes">
-							<p>Automotive</p>
-							<p>Medical</p>
-						</aside>
-					</section>
-
-					<section id="QNX-car">
-						<h2 class="fragment">QNX Car</h2>
-						<img src="images/bentley_center_stack.jpg">
-						<p class="fragment">Working on QNX Car as a supported platform within Apache Cordova</p>
-
-						<aside class="notes">
-							<p>Think about how much time you spend in your car</p>
-							<p>Within 5 years we will have true driver-less cars</p>
-							<p>What are you going to do while sitting in your car?</p>
-							<p>At BlackBerry Live we demoed a BBM Video chat between a car and a BB10 device</p>
-							<p>Target your app to automotive</p>
-							<p>Consider regulatory issues</p>
-							<p>This is just the beginning of what the true mobile computing world will be</p>
-						</aside>
-					</section>
-				</section>
-
-				<section id="fin">
-					<h1>Fin</h1>
-					<h3>Jorge del Casar • <a href="http://twitter.com/JorgeCasar">@JorgeCasar</a></h3>
-					<h3>Sharif F. Penniman • <a href="http://twitter.com/sfpenniman">@sfpenniman</a></h3>
+				<section id="fin" data-background="images/that-s-all-folks.jpg">
 				</section>
 
 			</div>
