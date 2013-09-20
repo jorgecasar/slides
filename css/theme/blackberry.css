@@ -1,54 +1,54 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 /**
- * Default theme for reveal.js.
+ * BlackBerry10 theme for reveal.js.
  *
- * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ * Jorge del Casar, @JorgeCasar
  */
-@font-face {
-  font-family: 'League Gothic';
-  src: url("../../lib/font/league_gothic-webfont.eot");
-  src: url("../../lib/font/league_gothic-webfont.eot?#iefix") format("embedded-opentype"), url("../../lib/font/league_gothic-webfont.woff") format("woff"), url("../../lib/font/league_gothic-webfont.ttf") format("truetype"), url("../../lib/font/league_gothic-webfont.svg#LeagueGothicRegular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  background-color: #333;
-  /*background: -moz-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #555a5f), color-stop(100%, #1c1e20));
-  background: -webkit-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
-  background: -o-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
-  background: -ms-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
-  background: radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);*/
-  /*background: -moz-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%) url('../../images/BlackBerry.png');
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #555a5f), color-stop(100%, #1c1e20)) url('../../images/BlackBerry.png');
-  background: -webkit-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%) url('../../images/BlackBerry.png');
-  background: -o-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%) url('../../images/BlackBerry.png');
-  background: -ms-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%) url('../../images/BlackBerry.png');
-  background: radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%) url('../../images/BlackBerry.png');
-  */
-  background-image: url('./blackberry/BlackBerry.png');
-  background-size:15%;
+  background: black;
+  background: -moz-radial-gradient(center, circle cover, rgb(99,99,99) 0%, black 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgb(99,99,99)), color-stop(100%, #262626));
+  background: -webkit-radial-gradient(center, circle cover, rgb(99,99,99) 0%, black 100%);
+  background: -o-radial-gradient(center, circle cover, rgb(99,99,99) 0%, black 100%);
+  background: -ms-radial-gradient(center, circle cover, rgb(99,99,99) 0%, black 100%);
+  background: radial-gradient(center, circle cover, rgb(99,99,99) 0%, black 100%);
+  background-color: black;
+}
+.reveal>.state-background {
+  background: url('./blackberry/BlackBerry.png');
   background-repeat:no-repeat;
-  background-position: 3% 98%; }
-
+  background-position: 3% 98%;
+}
 .reveal {
-  font-family: "Slate Pro", "Lato", sans-serif;
+  font-family: "Trade Gothic Next LT Pro", sans-serif;
   font-size: 36px;
-  font-weight: 200;
+  font-weight: 100;
   letter-spacing: -0.02em;
-  color: #eeeeee; }
+  color: #fafafa; }
+.reveal .slides {
+  text-align: left !important; }
+.reveal .slides>section, .reveal .slides>section>section {
+  font-weight: 100;
+}
+.reveal .center {
+  text-align: center;
+}
+.reveal .right {
+  text-align: right;
+}
 
 ::selection {
   color: white;
-  background: #ff5e99;
+  background: rgba(0, 141, 193, 0.99);
   text-shadow: none; }
 
 /*********************************************
  * HEADERS
  *********************************************/
+.reveal header {
+  text-align: left; }
 .reveal h1,
 .reveal h2,
 .reveal h3,
@@ -56,20 +56,49 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #eeeeee;
-  font-family: "Slate Pro", "League Gothic", Impact, sans-serif;
+  font-family: "Trade Gothic Next LT Pro", Helvetica, sans-serif;
+  font-weight: 100;
   line-height: 0.9em;
   letter-spacing: 0.02em;
+  text-shadow: none; }
+.reveal h1 {
+  font-size:2em; }
+.reveal h2 {
+  font-size:1.75em; }
+.reveal h3 {
+  font-size:1.5em; }
+.reveal h4 {
+  font-size:1.4em; }
+.reveal h5 {
+  font-size:1.2em; }
+.reveal h6 {
+  font-size:1.1em; }
+
+.reveal .blackberr10ifiedTitle {
+  text-transform: uppercase;
+  word-spacing: -0.1em;
+  font-family: "Slate Pro", sans-serif;
+  font-weight: normal;
+}
+.reveal .blackberr10ifiedTitle span {
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  line-height: 1.55em;
+  background:#000;
+  color:#fafafa;
+  margin: 0 0em;
+  padding: 0.1em 0.05em 0.1em 0.5em;
 }
 
-.reveal h1 {
-   }
+.reveal .dark {
+  color:#000;
+}
 
 /*********************************************
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #13daec;
+  color: #00a8df;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -78,22 +107,18 @@ body {
   transition: color .15s ease; }
 
 .reveal a:not(.image):hover {
-  color: #71e9f4;
+  color: rgb(127, 0, 141);
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #0d99a5; }
+  background: #564826; }
 
 /*********************************************
  * IMAGES
  *********************************************/
 .reveal section img {
-  margin: 15px 0px;
-  background: rgba(255, 255, 255, 1);
-  /*border: 0.5em solid #FFFFFF;*/
-  box-shadow: 0 0 2em 0.5em rgba(0, 0, 0, 0.5);
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
   -ms-transition: all .2s linear;
@@ -102,7 +127,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #13daec;
+  border-color: #00a8df;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
@@ -110,31 +135,31 @@ body {
  *********************************************/
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-  border-right-color: #13daec; }
+  border-right-color: #00a8df; }
 
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-  border-left-color: #13daec; }
+  border-left-color: #00a8df; }
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #13daec; }
+  border-bottom-color: #00a8df; }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-  border-top-color: #13daec; }
+  border-top-color: #00a8df; }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #71e9f4; }
+  border-right-color: rgb(127, 0, 141); }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #71e9f4; }
+  border-left-color: rgb(127, 0, 141); }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #71e9f4; }
+  border-bottom-color: rgb(127, 0, 141); }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #71e9f4; }
+  border-top-color: rgb(127, 0, 141); }
 
 /*********************************************
  * PROGRESS BAR
@@ -143,16 +168,9 @@ body {
   background: rgba(0, 0, 0, 0.2); }
 
 .reveal .progress span {
-  background: #13daec;
+  background: #00a8df;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -o-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
-
-/*********************************************
- * LISTS
- *********************************************/
-.reveal ul {
-  margin:0;
-}

@@ -2,16 +2,43 @@
 	// Full list of configuration options available here:
 	// https://github.com/hakimel/reveal.js#configuration
 	Reveal.initialize({
+		// Display controls in the bottom right corner
 		controls: true,
-		progress: false,
+		// Display a presentation progress bar
+		progress: true,
+		// Push each slide change to the browser history
 		history: true,
-		center: true,
-
-		theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-		transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+		// Enable keyboard shortcuts for navigation
+		keyboard: true,
+		// Enable touch events for navigation
+		touch: true,
+		// Enable the slide overview mode
+		overview: true,
+		// Vertical centering of slides
+		center: false,
+		// Loop the presentation
+		loop: true,
+		// Change the presentation direction to be RTL
+		rtl: false,
+		// Number of milliseconds between automatically proceeding to the
+		// next slide, disabled when set to 0, this value can be overwritten
+		// by using a data-autoslide attribute on your slides
+		autoSlide: 0,
+		// Enable slide navigation via mouse wheel
+		mouseWheel: false,
+		// Transition style
+		transition: 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+		// Transition speed
+		transitionSpeed: 'default', // default/fast/slow
+		// Transition style for full page backgrounds
+		backgroundTransition: 'linear', // default/linear/none
 
 		// Optional libraries used to extend on reveal.js
 		dependencies: [
+			{ src: '../js/jquery.js' },
+			{ src: '../js/blackberr10ifyTitle/jquery.blackberr10ifyTitle.js', async:true, callback: function(){
+				$('h1, .blackberr10ifyTitle').blackberr10ifyTitle();
+			} },
 			{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
 			{ src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 			{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
@@ -24,5 +51,5 @@
 			// { src: '../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 		]
 	});
-
+	
 })(Reveal);
