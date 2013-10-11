@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>How to build HTML5 apps with Cordova</title>
+		<meta name="description" content="BlackBerry PhoneGap Day EU 2013 Sponsor talk">
+		<meta name="author" content="Jorge del Casar">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="../css/theme/blackberry.css" id="theme">
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../css/tomorrow-night-bright.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				
+				<section data-background="images/cordova.png" data-background-size="19%" data-background-position="80% 80%">
+					<h1>How to build HTML5 apps with Cordova</h1>
+					<p>Jorge del Casar<br/>(a.k.a. <a href="http://twitter.com/jorgecasar">@JorgeCasar</a>)</p>
+					<p>BlackBerry Developer Evangelist</p>
+				</section>
+				<section>
+					<section id="what-is-apache-cordova">
+						<h2 class="blackberry10ifyTitle">What's Apache Cordova?</h2>
+						<div class="fragment">
+							<ul>
+								<li>A platform for building native mobile applications using HTML, CSS and JavaScript</li>
+								<li>An open-source mobile development framework</li>
+							</ul>
+							<br/>
+							<p><a href="http://cordova.apache.org/">http://cordova.apache.org</a></p>
+						</div>
+					</section>
+					<section id="apache-cordova-3.0">
+						<h2 class="blackberry10ifyTitle">Apache Cordova 3.0</h2>
+						<p>19 Jul 2013</p>
+						<h3>Main release Notes:</h3>
+						<ul>
+							<li>New (lighter) Core</li>
+							<li>New Command Line Tooling (Node.js based)</li>
+							<li>Release Plugman 0.11.0 (new plugin management)
+								<ul>
+									<li>Change &lt;plugin&gt; to &lt;feature&gt; in config.xml</li>
+									<li>Breakout Plugins into their own repos</li>
+								</ul>
+							</li>
+							<li>Deprecate Froyo</li>
+						</ul>
+					</section>
+					<section id="apache-cordova-3.1">
+						<h2 class="blackberry10ifyTitle">Apache Cordova 3.1</h2>
+						<p>02 Oct 2013</p>
+						<h3>Release Notes:</h3>
+						<ul>
+							<li>Initial (alpha) support for Firefox OS</li>
+							<li>Windows 8 support for CLI project</li>
+							<li>Unified whitelist syntax on iOS and Android</li>
+							<li>Documentation translated into several languages:
+								<br>fr, zh, de, it, ja, ko, ru &amp; es</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section id="comand-line-interface">
+						<h2 class="blackberry10ifyTitle">CLI = Command Line Interface</h2>
+						<ol class="fragment">
+							<li>Install <a href="http://nodejs.org">Node.js</a></li>
+							<li>
+								Install Cordova package:
+								<pre><code>sudo npm install -g cordova</code></pre>
+							</li>
+					</section>
+					<section id="cli-create">
+						<h3 class="blackberry10ifyTitle">Create</h3>
+<pre><code>cordova create &lt;PATH&gt; [ID] [NAME]</code></pre>
+						<p>Parameters:</p>
+						<ul>
+							<li><b>PATH</b>: directory to be generated for your project</li>
+							<li class="fragment"><b>ID</b>: reverse domain-style identifier (optional)</li>
+							<li class="fragment"><b>NAME</b>: application's display text (optional)</li>
+						</ul>
+					</section>
+					<section id="cli-platform">
+						<h2 class="blackberry10ifyTitle">Platform(s)</h2>
+	<pre><code>cordova platform(s) [{add|remove|rm} &lt;PLATFORM&gt;]</code></pre>
+						<p>Parameters:</p>
+						<ul>
+							<li><b>PLATFORM</b>: platform you want to add
+								<br>android, blackberry10, firefoxos, ios, wp7, wp8, ...</li>
+						</ul>
+						<p>Without parameters: list all installed and available platforms</p>
+						<p><small>Check <a href="#platform-support">Platform Support</a> and <a href="#platform-guides">Platform Guides</a> before add a platform</small></p>
+					</section>
+					<section id="cli-plugin">
+						<h3 class="blackberry10ifyTitle">Plugin(s)</h3>
+<pre><code>cordova plugin(s) [{add|remove|rm} &lt;PATH|URI&gt;]</code></pre>
+						<p>Parameters:</p>
+						<ul>
+							<li><b>PATH or URI</b>: from where intall the plugin</li>
+						</ul>
+						<p>Without parameters: list all currently installed plugins</p>
+						<p><small>You can find a <a href="#apache-cordova-plugins">Apache Cordova Plugin</a> or <a href="#plugin-development-guide">Create your own one</a></small></p>
+					</section>
+					<section id="cli-prepare">
+						<h3 class="blackberry10ifyTitle">Prepare</h3>
+<pre><code>cordova prepare [&lt;PLATFORM&gt;]</code></pre>
+						<p>Copies files for specified platforms, or all platforms, so that the project is ready to build in each SDK</p>
+					</section>
+					<section id="cli-compile">
+						<h3 class="blackberry10ifyTitle">Compile</h3>
+<pre><code>cordova compile [&lt;PLATFORM&gt;]</code></pre>
+						<p>Builds the app for specified platforms, or all platforms</p>
+					</section>
+					<section id="cli-build">
+						<h3 class="blackberry10ifyTitle">Build</h3>
+<pre><code>cordova build [&lt;PLATFORM&gt;]</code></pre>
+						<p>Shortcut for <a href="#cli-prepare">prepare</a>, then <a href="#cli-compile">compile</a></p>
+					</section>
+					<section id="cli-emulate">
+						<h3 class="blackberry10ifyTitle">Emulate</h3>
+<pre><code>cordova emulate [&lt;PLATFORM&gt;]</code></pre>
+						<p>Deploys app in specified (or all) platforms' emulator, opening emulator if necessary</p>
+					</section>
+					<section id="cli-run">
+						<h3 class="blackberry10ifyTitle">Run</h3>
+<pre><code>cordova run [&lt;PLATFORM&gt;]</code></pre>
+						<p>Deploys app on specified (or all) platform devices, which must be properly connected and configured in each SDK</p>
+					</section>
+				</section>
+				<section>
+					<section id="platform-support">
+						<h1>Platform Support</h1>
+					</section>
+					<section id="core-platforms">
+						<h2 class="blackberry10ifyTitle">Core: The main platforms supported</h2>
+						<ul>
+							<li>Android</li>
+							<li>BlackBerry</li>
+							<li>iOS</li>
+							<li>Windows Phone</li>
+							<li>Windows 8</li>
+						</ul>
+					</section>
+					<section id="horizon-platforms">
+						<h2 class="blackberry10ifyTitle">Horizon: next platforms to become core</h2>
+						<ul>
+							<li>Tizen</li>
+							<li>Qt</li>
+							<li>Firefox OS</li>
+							<li>Ubuntu Mobile (Qt)</li>
+							<li>Windows (Win32)</li>
+						</ul>
+					</section>
+					<section id="sunset-platforms">
+						<h2 class="blackberry10ifyTitle">Sunset: not distribution anymore</h2>
+						<ul>
+							<li>Symbian</li>
+							<li>webOS</li>
+							<li>Bada</li>
+						</ul>
+					</section>
+					<section id="core-features">
+						<h2 class="blackberry10ifyTitle">Core Features</h2>
+						<ul>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/guide_cli_index.md.html">cordova CLI</a>:
+								<br/>Supported: Android, BlackBerry 10, iOS, WP7 and WP8</li>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/guide_hybrid_webviews_index.md.html">Embedded WebView</a>:
+								<br/>Supported: Android and iOS</li>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/guide_hybrid_plugins_index.md.html">Plug-in Interface</a>:
+								<br/>Supported: Android, BlackBerry 10, iOS, WP7 and WP8</li>
+						</ul>
+					</section>
+					<section id="full-support-platform-apis">
+						<h2 class="blackberry10ifyTitle">Full support Platfom APIs</h2>
+						<ul>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/cordova_accelerometer_accelerometer.md.html">Accelerometer</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/cordova_camera_camera.md.html">Camera</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/cordova_compass_compass.md.html">Compass</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/cordova_connection_connection.md.html">Connection</a></li>
+						</ul>
+						<ul>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/cordova_contacts_contacts.md.html">Contacts</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/cordova_device_device.md.html">Device</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/cordova_events_events.md.html">Events</a></li><li><a href="http://cordova.apache.org/docs/en/3.1.0/cordova_geolocation_geolocation.md.html">Geolocation</a></li>
+						</ul>
+						<ul>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/cordova_media_media.md.html">Media</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/cordova_notification_notification.md.html">Notification</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/3.1.0/cordova_splashscreen_splashscreen.md.html">Splashscreen</a></li>
+						</ul>
+					</section>
+					<section id="platform-api-warnings">
+						<h2 class="blackberry10ifyTitle">Platfom APIs warnings</h2>
+						<ul>
+							<li>
+								<a href="http://cordova.apache.org/docs/en/3.1.0/cordova_media_capture_capture.md.html">Capture</a>: NO supported in Windows 8
+							</li>
+							<li>
+								<a href="http://cordova.apache.org/docs/en/3.1.0/cordova_file_file.md.html">File</a>: WP7 and WP8 don't support <a href="http://cordova.apache.org/docs/en/3.1.0/cordova_file_file.md.html#FileTransfer">FileTransfer</a>
+							</li>
+							<li>
+								<a href="http://cordova.apache.org/docs/en/3.1.0/cordova_globalization_globalization.md.html">Globalization</a>:
+								NO supported in BB10, WP7 and W8
+							</li>
+							<li>
+								<a href="http://cordova.apache.org/docs/en/3.1.0/cordova_inappbrowser_inappbrowser.md.html">InAppBrowser</a>: NO supported in Windows 8
+							</li>
+							<li>
+								<a href="http://cordova.apache.org/docs/en/3.1.0/cordova_storage_storage.md.html">Storage</a>: WP7 and WP8 ONLY support <a href="http://cordova.apache.org/docs/en/3.1.0/cordova_storage_storage.md.html#localStorage">localStorage</a>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section id="platform-guides">
+						<h1>Platform guides</h1>
+					</section>
+					<section id="platform-guide-android" data-background="images/google-nexus.png" data-background-size="19%" data-background-position="80% 80%">
+						<h2 class="blackberry10ifyTitle">Android</h2>
+						<ol>
+							<li>Check the <a href="http://developer.android.com/sdk/index.html#Requirements">System Requirements</a></li>
+							<li>Install <a href="http://developer.android.com/sdk/index.html">Android SDK</a></li>
+							<li>Append in the PATH enviroment:
+<pre><code>[adt-path]/sdk/tools</code></pre>
+<pre><code>[adt-path]/sdk/platform-tools</code></pre></li>
+								</ul>
+							</li>
+							<li>Register and <b>pay</b> for a<br/><a href="https://play.google.com/apps/publish/">Google Play publisher</a> account</li>
+						</ol>
+					</section>
+					<section id="platform-guide-blackberry10" data-background="images/blackberry-z30.png" data-background-size="19%" data-background-position="80% 80%">
+						<h2 class="blackberry10ifyTitle">BlackBerry 10</h2>
+						<ol>
+							<li>Check the <a href="https://developer.blackberry.com/native/downloads/requirements/">System Requirements</a></li>
+							<li>Install <a href="https://developer.blackberry.com/native/download/">BlackBerry Native SDK</a></li>
+							<li>
+								Append in the PATH enviroment:<br/>
+<pre><code>[bbndk-path]/[host]/darwin/x86/usr/bin/</code></pre>
+							</li>
+							<li>Register for <b>free</b> to get a <a href="http://blackberry.com/bbid">BlackBerry ID</a></li>
+						</ol>
+					</section>
+					<section id="platform-guide-ios" data-background="images/apple-iphone.png" data-background-size="19%" data-background-position="80% 80%">
+						<h2 class="blackberry10ifyTitle">iOS</h2>
+						<ol>
+							<li>Mac OSX 10.7 (Lion) or greater</li>
+							<li>Install Apple SDK (latests mandatory)
+								<ul>
+									<li>from the <a href="https://itunes.apple.com/us/app/xcode/id497799835">App Store</a></li>
+									<li>from <a href="https://developer.apple.com/downloads/index.action?name=Xcode">Apple Developer Downloads</a></li>
+								</ul>
+							</li>
+							<li>Register and <b>pay</b> for a<br/><a href="https://developer.apple.com/programs/ios/">iOS Developer Program</a> account</li>
+						</ol>
+						<aside class="notes">
+							<p>Error: Can't run /Developer/usr/bin/xcodebuild (no such file).</p>
+							<p>solution: <code>sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer</code></p>
+						</aside>
+					</section>
+					<section id="platform-guide-wp" data-background="images/windows-phone.png" data-background-size="19%" data-background-position="80% 80%">
+						<h2 class="blackberry10ifyTitle">Windows Phone</h2>
+						<ol>
+							<li>Windows 8 or greater</li>
+							<li>Install <a href="http://www.microsoft.com/en-us/download/details.aspx?id=35471">Windows Phone SDK</a></li>
+							<li>Register and <b>pay</b> for a<br/><a href="http://dev.windowsphone.com/en-us/publish">Windows Phone Dev Center</a> account</li>
+						</ol>
+					</section>
+				</section>
+				<section>
+					<section id="apache-cordova-plugins">
+						<h3 class="blackberry10ifyTitle">Apache Cordova Plugins</h3>
+						<ul>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_device_device.md.html">Device</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_connection_connection.md.html">Connection</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_events_events.md.html">Events</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_accelerometer_accelerometer.md.html">Accelerometer</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_compass_compass.md.html#Compass">Compass</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_geolocation_geolocation.md.html#Geolocation">Geolocation</a></li>
+						</ul>
+						<ul>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_camera_camera.md.html#Camera">Camera</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_media_media.md.html#Media">Media</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_media_capture_capture.md.html#Capture">Capture</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_file_file.md.html#File">File</a></li>
+							<li>File transfer</li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_notification_notification.md.html#Notification">Notification</a></li>
+						</ul>
+						<ul>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_contacts_contacts.md.html#Contacts">Contacts</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_globalization_globalization.md.html#Globalization">Globalization</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_splashscreen_splashscreen.md.html#Splashscreen">Splashscreen</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/cordova_inappbrowser_inappbrowser.md.html#InAppBrowser">InAppBrowser</a></li>
+							<li>Debug console</li>
+					</section>					
+					<section id="own-plugins">
+						<h3 class="blackberry10ifyTitle">Make your onw Plugins</h3>
+						<p>You can lern how reading the <a href="http://cordova.apache.org/docs/en/edge/guide_hybrid_plugins_index.md.html">plugin development guide</a> and read how to implement the native code in each platform:</p>
+						<ul>
+							<li><a href="http://cordova.apache.org/docs/en/edge/guide_platforms_android_plugin.md.html#Android%20Plugins">Android Plugins</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/guide_platforms_blackberry_plugin.md.html#BlackBerry%20Plugins">BlackBerry Plugins</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/guide_platforms_blackberry10_plugin.md.html#BlackBerry%2010%20Plugins">BlackBerry 10 Plugins</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/guide_platforms_ios_plugin.md.html#iOS%20Plugins">iOS Plugins</a></li>
+							<li><a href="http://cordova.apache.org/docs/en/edge/guide_platforms_wp8_plugin.md.html#Windows%20Phone%20Plugins">Windows Phone Plugins</a></li>
+						</ul>
+					</section>
+					<section id="platform-plugins">
+						<h3 class="blackberry10ifyTitle">Platform Plugins</h3>
+						<p>You can add a plugin to a specific platform using <code>plugman</code> directly</p>
+						<pre><code>plugman --platform [PLATFORM] --project [PATH] --plugin [URL]</code></pre>
+						<p>If you don't have plugman you can install globally:</p>
+						<pre><code>npm install -g plugman</code></pre>
+					</section>
+				</section>
+				<section>
+					<h3 class="blackberry10ifyTitle">Merges: customize each platform</h3>
+					<p>All you put inside <code>./merges/[platform]</code> will overide the files placed in <code>./www/</code> in the specific platform</p>
+				</section>
+			</div>
+		</div>
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.min.js"></script>
+		<script src="../js/main.js"></script>
+	</body>
+</html>
