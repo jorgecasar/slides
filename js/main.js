@@ -17,7 +17,7 @@
 		// Vertical centering of slides
 		center: false,
 		// Loop the presentation
-		loop: true,
+		loop: false,
 		// Change the presentation direction to be RTL
 		rtl: false,
 		// Number of milliseconds between automatically proceeding to the
@@ -36,13 +36,13 @@
 		// Optional libraries used to extend on reveal.js
 		dependencies: [
 			{ src: '../js/jquery.js' },
-			{ src: '../js/blackberr10ifyTitle/jquery.blackberr10ifyTitle.js', async:true, callback: function(){
-				$('h1, .blackberr10ifyTitle').blackberr10ifyTitle();
+			{ src: '../js/blackberry10ifyTitle/jquery.blackberry10ifyTitle.js', async:true, callback: function(){
+				$('h1, .blackberry10ifyTitle').blackberry10ifyTitle();
 			} },
 			{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
 			{ src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 			{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			// { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 			{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 			{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
 			// { src: 'socket.io/socket.io.js', async: true, condition: function() { return !!document.body.classList; } },

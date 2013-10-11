@@ -1,8 +1,8 @@
 (function($) {
 
-	$.fn.blackberr10ifyTitle = function(options) {
+	$.fn.blackberry10ifyTitle = function(options) {
 
-		var settings = $.extend({}, $.fn.blackberr10ifyTitle.defaults, options ),
+		var settings = $.extend({}, $.fn.blackberry10ifyTitle.defaults, options ),
 
 		wordSpacePattern  = /(\s*[^ ]+\s*)/g,
 
@@ -21,11 +21,11 @@
 			for (i = 0; i < words.length; i++){
 				newText.push(createWordWrapper(words[i]));
 			}
-			$this.html(newText.join(' ')).addClass('blackberr10ifiedTitle');
+			$this.html(newText.join(' ')).addClass('blackberry10ifiedTitle');
 		});
 	};
 
-	$.fn.blackberr10ifyTitle.defaults = {
+	$.fn.blackberry10ifyTitle.defaults = {
 		childTag: 'span'
 	};
 })(jQuery);
