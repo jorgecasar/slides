@@ -35,8 +35,8 @@
 
 		// Optional libraries used to extend on reveal.js
 		dependencies: [
-			{ src: '../js/jquery.js' },
-			{ src: '../js/blackberry10ifyTitle/jquery.blackberry10ifyTitle.js', async:true, callback: function(){
+			{ src: '../javascripts/jquery.js' },
+			{ src: '../javascripts/blackberry10ifyTitle/jquery.blackberry10ifyTitle.js', async:true, callback: function(){
 				$('h1, .blackberry10ifyTitle').blackberry10ifyTitle();
 			} },
 			{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
