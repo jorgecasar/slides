@@ -36,9 +36,16 @@
 		// Optional libraries used to extend on reveal.js
 		dependencies: [
 			{ src: '../javascripts/jquery.js' },
-			{ src: '../javascripts/jquery.wrapChildren/jquery.wrapChildren.min.js', async:true, callback: function(){
-				$('h1, .blackberry10ifyTitle').wrapChildren({wrappedClass: 'blackberry10ifiedTitle'});
-			} },
+			{ src: '../javascripts/jquery.wrapChildren/jquery.wrapChildren.min.js',
+				condition: function() {
+					var theme = document.getElementById('theme');
+					// the plugin will be loaded with blackberry them only.
+					return theme.lenght == 1 || 0 <= theme.href.indexOf('blackberry.css');
+				},
+				async:true, callback: function(){
+					$('h1, .blackberry10ifyTitle').wrapChildren({wrappedClass: 'blackberry10ifiedTitle'});
+				}
+			},
 			{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
 			{ src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 			{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
