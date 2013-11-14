@@ -1,3 +1,6 @@
 [submodule "reveal.js"]
 	path = reveal.js
 	url = https://github.com/hakimel/reveal.js.git
+[submodule "javascripts/jquery.wrapChildren"]
+	path = javascripts/jquery.wrapChildren
+	url = https://github.com/jorgecasar/jquery.wrapChildren.git

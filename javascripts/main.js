@@ -36,8 +36,8 @@
 		// Optional libraries used to extend on reveal.js
 		dependencies: [
 			{ src: '../javascripts/jquery.js' },
-			{ src: '../javascripts/blackberry10ifyTitle/jquery.blackberry10ifyTitle.js', async:true, callback: function(){
-				$('h1, .blackberry10ifyTitle').blackberry10ifyTitle();
+			{ src: '../javascripts/jquery.wrapChildren/jquery.wrapChildren.min.js', async:true, callback: function(){
+				$('h1, .blackberry10ifyTitle').wrapChildren({wrappedClass: 'blackberry10ifiedTitle'});
 			} },
 			{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
 			{ src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
