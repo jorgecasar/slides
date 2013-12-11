@@ -1,7 +1,7 @@
-BlackBerryTalks
-===============
+Jorge's Talks
+=============
 
-All my slides and information about my BlackBerry Talks.
+All my slides and information about my Talks.
 
 # Setup
 * Clone the repository with ```--recursive``` parameter to include submodules.
