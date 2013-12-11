@@ -15,7 +15,7 @@
 		// Enable the slide overview mode
 		overview: true,
 		// Vertical centering of slides
-		center: false,
+		center: !!document.querySelector( '.reveal.center' ),
 		// Loop the presentation
 		loop: false,
 		// Change the presentation direction to be RTL
