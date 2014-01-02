@@ -9,4 +9,4 @@ All my slides and information about my Talks.
 # Talks
 * [BlackBerry Loves the web](./BlackBerry-Loves-the-web/)
 * [How to build apps multiplatform with Cordova 3](./Cordova/)
-* [Cordova 3, Apps HTML5 for Android](./Cordova-Android/)
+* [Cordova 3, Apps HTML5 for Android](./Cordova-Android/) - [Video](http://www.youtube.com/watch?v=5sBmSVlvL6E)
