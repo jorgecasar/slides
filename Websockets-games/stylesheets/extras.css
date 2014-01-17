@@ -1,0 +1,25 @@
+#who-why-what-how-when ul {
+	list-style: none;
+	height:550px;
+	width:100%;
+}
+#who-why-what-how-when li {
+	position: relative;
+	display: block;
+	float:left;
+	width:30%;
+	text-align: center;
+	background:rgba(255,255,255,0.3);
+	margin:1.5%;
+}
+#who-why-what-how-when li a {
+	display: block;
+	padding:100px 0;
+}
+
+input {
+	height: 1.5em;
+	vertical-align: middle;
+	font-size: 1em;
+	width: 4em;
+}
