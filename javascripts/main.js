@@ -55,8 +55,13 @@
 			// { src: 'socket.io/socket.io.js', async: true, condition: function() { return !!document.body.classList; } },
 			// { src: '../reveal.js/plugin/notes-server/client.js', async: true, condition: function() { return !!document.body.classList; } }
 			// { src: '../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
-			// { src: '../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+			// { src: '../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
 		]
 	});
+	var resizeStateBackground = function(){
+		document.querySelector('.state-background').style.zoom = Reveal.getScale();
+	}
+	window.addEventListener( 'load', resizeStateBackground , false );
+	window.addEventListener( 'resize', resizeStateBackground , false );
 	
 })(Reveal);

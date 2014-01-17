@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Implementar Websockets en Videojuegos, ¿para qué?</title>
+		<meta name="description" content="BlackBerry PhoneGap Day EU 2013 Sponsor talk">
+		<meta name="author" content="Jorge del Casar">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="../stylesheets/theme/gameme5.css" id="theme">
+		<link rel="stylesheet" href="./stylesheets/extras.css">
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal center">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				
+				<section data-background="images/ws_logo.png" data-background-size="19%" data-background-position="80% 80%">
+					<h1>Implement Websockets <br> in Videogames, why for?</h1>
+					<p>Jorge del Casar (a.k.a. <a href="http://twitter.com/jorgecasar">@JorgeCasar</a>)</p>
+				</section>
+				<section id="who-why-what-how-when">
+					<ul>
+						<li><a href="#/who">who</a></li>
+						<li><a href="#/why">why</a></li>
+						<li><a href="#/where">where</a></li>
+						<li><a href="#/what">what</a></li>
+						<li><a href="#/how">how</a></li>
+						<li><a href="#/when">when</a></li>
+					</ul>
+				</section>
+				<section id="who" data-background="images/JorgeCasar.jpg" data-background-position="top right" data-background-size="50%">
+						<h1><b>Who</b> am I?</h1>
+						<p><b>HTML5</b> evangelist</p>
+						<p><b>Javascript</b> writer</p>
+						<p><b>CSS3</b> styler</p>
+						<p><b>Tecnology</b> advisor</p>
+						<p><b>Siesta-time</b> speaker</p>
+					</section>
+				<section>
+					<section id="why">
+						<h1>Why?</h1>
+						<p>Reliable "real-time" comunications with minimal latency</p>
+					</section>
+					<section id="why-not-http">
+						<h2>Why not HTTP?</h2>
+						<ul>
+							<li>HTTP is half-duplex</li>
+							<li>HTTP adds latency (75-140ms range)</li>
+							<li>HTTP overcharge headers (700-800 bytes)</li>
+						</ul>
+					</section>
+					<section id="setInterval">
+						<h3>Short Polling (setInterval)</h3>
+						<p>Make a ajax request continuously</p>
+						<pre><code class="javascript">(function poll() {
+    setInterval(function () {
+        $.ajax({
+            dataType: 'json',
+            url: 'http://somewhere.com/rest/123',
+            success: function (data) {
+                // Do something with the data
+            }
+        });
+    }, 5000);
+})();</code></pre>
+					</section>
+					<section id="setTimeout">
+						<h3>Short Polling (setTimeOut)</h3>
+						<p>Make a ajax request continuously (stoppable)</p>
+						<pre><code class="javascript">(function poll() {
+    setTimeout(function () {
+        $.ajax({
+            dataType: 'json',
+            url: 'http://somewhere.com/rest/123',
+            success: function (data) {
+                // Do something with the data
+                if( continuePulling(data) ) {
+                	poll();
+                }
+            }
+        });
+    }, 5000);
+})();</code></pre>
+						<p><a href="http://cogentrts.com:8080/DH_ajax_3.asp">Example polling</a></p>
+					</section>
+					<section id="simulate-long-polling">
+						<h3>Long Polling (Comet)</h3>
+						<p>Keep the connection open</p>
+						<pre><code class="javascript">(function longPoll() {
+    setTimeout(function () {
+        $.ajax({
+            dataType: 'json',
+            url: 'http://somewhere.com/rest/123',
+            success: function (data) {
+                // Do something with the data
+                longPoll();
+            },
+            timeout: 30000
+        });
+    }, 5000);
+})();</code></pre>
+					</section>
+					<section id="forever-iframe">
+						<h3>Forever iframe (Streaming)</h3>
+						<ul>
+							<li>Loading a page in an IFRAME</li>
+							<li>Receives commands wrapped in &lt;script&gt; tags</li>
+							<li>Evaluate the script</li>
+						</ul>
+						<p><a href="http://cogentrts.com:8080/DH_ajax_1.asp">Example forever iframe</a></p>
+					</section id="http-options-comparation">
+					<section data-background="images/simulating-real-time.gif"></section>
+					<section id="polling-header-traffic-analysis">
+						<h3>Header traffic analysis</h3>
+						<ul>
+							<li>Case A: 10.000 clients polling every 60 seconds<br>Trafic: 0,9 Mbps</li>
+							<li>Case B: 10.000 clients polling every second<br>Trafic: 58,6 Mbps</li>
+							<li>Case C: 100.000 clients polling every 10 seconds<br>Trafic: 58,6 Mbps</li>
+						</ul>
+						<p><a href="#/header-size-calculator">Header size calculator</a></p>
+					</section>
+				</section>
+				<section>
+					<section id="where">
+						<h2>Where?</h2>
+						<ul>
+							<li>Messaging</li>
+							<li>Financial</li>
+							<li>Monitoring and management</li>
+							<li>Social networking</li>
+							<li>Shared working</li>
+							<li>Gaming</li>
+							<li>And much more...</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section id="what">
+						<h2>What?</h2>
+						<div>
+							<p>WebSocket is a protocol providing <b>full-duplex</b> communications channels over a single TCP connection</p>
+							<p><a href="http://dev.w3.org/html5/websockets/">http://dev.w3.org/html5/websockets/</a></p>
+						</div>
+					</section>
+					<section id="what-way">
+						<h2>What way?</h2>
+						<ul>
+							<li>Runs via port 80/443 - Proxy/Firewall friendly<ul>
+								<li>HTTP-compatible handshake</li>
+								<li>Integrates with Cookie based authentication</li>
+							</ul></li>
+							<li>WebSockets and Secure WebSockets<ul>
+								<li>ws://</li>
+								<li>wss://</li>
+							</ul></li>
+						</ul>
+					</section>
+					<section id="what-traffic-reduction">
+						<h2>What traffic reduction?</h2>
+						<ul>
+							<li>Each message has 2 bytes of overhead</li>
+							<li>No latency for establishing new TCP connection</li>
+							<li>Only send messages when there is something to send</li>
+						</ul>
+					</section>
+					<section id="header-traffic-analysis">
+						<h3>Header traffic analysis</h3>
+						<ul>
+							<li>Case A: 10.000 messages every 60 seconds<br>Trafic: 2 Kbps</li>
+							<li>Case B: 10.000 messages every second<br>Trafic: 156 Kbps</li>
+							<li>Case C: 100.000 messages every 10 seconds<br>Trafic: 156 Kbps</li>
+						</ul>
+						<p><a href="#/header-size-calculator">Header size calculator</a></p>
+					</section>
+					<section>
+						<blockquote>
+							<p>Reducing kilobytes of data to 2 bytes…and reducing latency from 150ms to 50ms is far more than marginal. In fact, these two factors alone are enough to make WebSocket seriously interesting to Google.</p>
+						</blockquote>
+						<p>Ian Hickson<br/>Google, HTML5 spec lead</p>
+					</section>
+				</section>
+				<section>
+					<section id="how">
+						<h2>How?</h2>
+					</section>
+					<section id="websocket-api">
+						<h3>WebSocket API</h3>
+						<pre><code>[Constructor(DOMString url, optional (DOMString or DOMString[]) protocols)]
+interface WebSocket : EventTarget {
+  readonly attribute DOMString url;
+
+  // ready state
+  const unsigned short CONNECTING = 0;
+  const unsigned short OPEN = 1;
+  const unsigned short CLOSING = 2;
+  const unsigned short CLOSED = 3;
+  readonly attribute unsigned short readyState;
+  readonly attribute unsigned long bufferedAmount;
+
+  // networking
+           attribute EventHandler onopen;
+           attribute EventHandler onerror;
+           attribute EventHandler onclose;
+  readonly attribute DOMString extensions;
+  readonly attribute DOMString protocol;
+  void close([Clamp] optional unsigned short code, optional DOMString reason);
+
+  // messaging
+           attribute EventHandler onmessage;
+           attribute BinaryType binaryType;
+  void send(DOMString data);
+  void send(Blob data);
+  void send(ArrayBuffer data);
+  void send(ArrayBufferView data);
+};</code></pre>
+						<p><a href="http://dev.w3.org/html5/websockets/">API specification</a></p>
+					</section>
+					<section id="in-the-client">
+						<h3>In the client</h3>
+						<pre><code class="javascript">//Create new WebSocket
+var mySocket = new WebSocket(&quot;ws://www.websockets.org&quot;);
+// Associate listeners
+mySocket.onopen = function(evt) {
+  alert(&quot;Connection open…&quot;);
+};
+mySocket.onmessage = function(evt) {
+  alert(&quot;Received message: &quot; + evt.data);
+};
+mySocket.onclose = function(evt) {
+  alert(&quot;Connection closed…&quot;);
+};
+mySocket.onerror = function(evt) {
+  alert(&quot;Error&quot;);
+};
+// Sending data
+mySocket.send(&quot;WebSocket Rocks!&quot;);
+// Close WebSocket
+mySocket.close();</code></pre>
+					</section>
+					<section id="in-the-server">
+						<h3>In the server (NodeJS)</h3>
+						<pre><code class="javascript">var io = require('socket.io').listen(80);
+
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+});</code></pre>
+					</section>
+				</section>
+				<section>
+					<section id="when">
+						<h2>When?</h2>
+					</section>
+					<section id="now" class="right dark" data-background="images/uncle_sam.jpg">
+						<h3>Now!<br/>Let's demo!</h3>
+					</section>
+				</section>
+				<section id="fin" data-background="images/that-s-all-folks.jpg"></section>
+				<section id="header-size-calculator">
+					<h2>Header size calculator</h2>
+					<form id="calculator">
+						<p>
+							<label for="calculator-headerSize">Header size:</label>
+							<input type="number" value="750" name="calculator-headerSize" id="calculator-headerSize" /> Bytes</p>
+						<p>
+							<label for="calculator-clients">Clients:</label>
+							<input type="number" value="10" name="calculator-clients" id="calculator-clients" /> thousand
+						</p>
+						<p>
+							<label for="calculator-timeout">Timeout: </label>
+							<input type="number" value="60" name="calculator-timeout" id="calculator-timeout" /> seconds
+						</p>
+						<p>Result:</p>
+						<ul>
+							<li><output name="overhead-bits">0</output> Bytes per second</li>
+							<li><output name="overhead-mbps">0</output> Kbps</li>
+						</ul>
+					</form>
+					<a href="javascript:history.back();">Back</a>
+				</section>
+			</div>
+		</div>
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+		<script src="../javascripts/main.js"></script>
+		<script src="./javascripts/extras.js"></script>
+	</body>
+</html>

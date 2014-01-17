@@ -1,33 +1,43 @@
 /**
- * BlackBerry10 theme for reveal.js.
+ * GameMe5 theme for reveal.js.
  *
  * Jorge del Casar, @JorgeCasar
  */
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
 body {
-  background: black;
-  background: -moz-radial-gradient(center, circle cover, rgb(99,99,99) 0%, black 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgb(99,99,99)), color-stop(100%, #262626));
-  background: -webkit-radial-gradient(center, circle cover, rgb(99,99,99) 0%, black 100%);
-  background: -o-radial-gradient(center, circle cover, rgb(99,99,99) 0%, black 100%);
-  background: -ms-radial-gradient(center, circle cover, rgb(99,99,99) 0%, black 100%);
-  background: radial-gradient(center, circle cover, rgb(99,99,99) 0%, black 100%);
-  background-color: black;
+  background: rgb(9, 85, 137);
+  background: -moz-radial-gradient(center, circle cover, rgb(142, 216, 231) 0%, rgb(9, 85, 137) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgb(142, 216, 231)), color-stop(100%, rgb(9, 85, 137)));
+  background: -webkit-radial-gradient(center, circle cover, rgb(142, 216, 231) 0%, rgb(9, 85, 137) 100%);
+  background: -o-radial-gradient(center, circle cover, rgb(142, 216, 231) 0%, rgb(9, 85, 137) 100%);
+  background: -ms-radial-gradient(center, circle cover, rgb(142, 216, 231) 0%, rgb(9, 85, 137) 100%);
+  background: radial-gradient(center, circle cover, rgb(142, 216, 231) 0%, rgb(9, 85, 137) 100%);
+  background-color: rgb(9, 85, 137);
 }
 .reveal>.state-background {
-  background: url('./blackberry/BlackBerry.png');
+  background: url('./gameme5/logo_gameMe5.png');
   background-repeat:no-repeat;
   background-position: 3% 98%;
-  background-size: 20%;
+  background-size: 10%;
+  font-size: 0.8em;
+}
+.reveal>.state-background:after{
+  display: block;
+  position: absolute;
+  bottom: 3%;
+  left:12%;
+  content: "@JorgeCasar #GameMe5";
+  width:10%;
 }
 .reveal {
-  font-family: "Trade Gothic Next LT Pro", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 36px;
   font-weight: 100;
-  letter-spacing: -0.02em;
-  color: #fafafa; }
+  color: rgb(35,31,32);
+}
 .reveal .slides {
   text-align: left !important; }
 .reveal .slides>section, .reveal .slides>section>section {
@@ -58,10 +68,9 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  font-family: "Trade Gothic Next LT Pro", Helvetica, sans-serif;
-  font-weight: 100;
-  line-height: 0.9em;
-  letter-spacing: 0.02em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1em;
   text-shadow: none; }
 .reveal h1 {
   font-size:2em; }
@@ -78,11 +87,12 @@ body {
 
 .reveal p, .reveal ul, .reveal ol, .reveal dl {
   margin-bottom: 10px;
-  line-height: 1.2em;
+  line-height: 1.5em;
   vertical-align: top;
 }
 .reveal li {
   line-height: 1.5;
+  margin-left:0.5em;
 }
 
 .reveal .blackberry10ifiedTitle {
@@ -109,7 +119,7 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #00a8df;
+  color: rgb(228, 77, 38);
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -118,13 +128,15 @@ body {
   transition: color .15s ease; }
 
 .reveal a:not(.image):hover {
-  color: rgb(127, 0, 141);
+  color: rgb(241, 101, 41);
+  background: rgba(255, 255,255, 0.2);
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #564826; }
+  background: #564826;
+}
 
 /*********************************************
  * IMAGES
@@ -161,16 +173,16 @@ body {
   border-top-color: #00a8df; }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: rgb(127, 0, 141); }
+  border-right-color: rgb(228, 77, 38); }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: rgb(127, 0, 141); }
+  border-left-color: rgb(228, 77, 38); }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: rgb(127, 0, 141); }
+  border-bottom-color: rgb(228, 77, 38); }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: rgb(127, 0, 141); }
+  border-top-color: rgb(228, 77, 38); }
 
 /*********************************************
  * PROGRESS BAR
