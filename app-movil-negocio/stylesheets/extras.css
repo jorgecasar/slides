@@ -1,0 +1,52 @@
+.reveal .dark .visible {
+	background: rgba(255,255,255, 0.4);
+}
+
+.reveal ul {
+	padding-left: 1em;
+	margin-left: 0;
+}
+
+#imcoconut {
+	position:absolute;
+	right:0%;
+	bottom:-20%;
+	width:8%;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+#por-que-movil-grafico ul {
+	position: relative;
+	height:10em;
+	width: 100%;
+	margin:0;
+	padding:0;
+	bottom:0;
+	left:0;
+	list-style: none;
+	background-color: rgba(0,0,0,0.3);
+}
+#por-que-movil-grafico ul ul {
+	position: absolute;
+}
+#por-que-movil-grafico ul.visit {
+	height:60%;
+	top:40%;
+}
+#por-que-movil-grafico ul.act {
+	height:90%;
+	top:10%;	
+}
+
+#por-que-movil-grafico ul span {
+	position: absolute;
+}
+
+#por-que-movil-grafico ul.visit span {
+	top: -1.5em;
+}
+#por-que-movil-grafico ul.act span {
+	top: 0;
+}
+
