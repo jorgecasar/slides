@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>API REST realtime with NodeJS</title>
+		<meta name="description" content="How to build an API REST realtime with NodeJS">
+		<meta name="author" content="Jorge del Casar">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/moon.css" id="theme">
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal center">
+			<div class="slides">
+				<section>
+					<h1>API REST realtime with NodeJS</h1>
+					<h2>
+						<small>Jorge del Casar / <a href="http://twitter.com/jorgecasar">@JorgeCasar</a></small>
+					</h2>
+				</section>
+				<section id="who-am-i" data-background="../images/JorgeCasar.jpg" data-background-position="top right" data-background-size="50%" style="text-align:left;">
+					<h1><b>Who</b> am I?</h1>
+					<p><b>HTML5</b> evangelist</p>
+					<p><b>Javascript</b> writer</p>
+					<p><b>IT</b> consultant</p>
+					<p><b>Speaker</b></p>
+				</section>
+				<section>
+					<section>
+						<h2>realtime • API • REST • NodeJS</h2>
+						<h1 class="fragment">WTF?</h1>
+					</section>
+					<section>
+						<h3>Realtime (a.k.a. reactive)</h3>
+						<p class="fragment">The study of hardware and software systems that are subject to a "real-time constraint".</p>
+						<div class="fragment">
+							<p>Real-time software may use one or more of the following:</p>
+							<ul>
+								<li>synchronous programming languages</li>
+								<li>real-time operating systems</li>
+								<li>real-time networks</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h3>API</h3>
+						<ul>
+							<li><b>A</b><span class="fragment">pplication</span></li>
+							<li><b>P</b><span class="fragment">rogramming</span></li>
+							<li><b>I</b><span class="fragment">nterface</span></li>
+						</ul>
+						<p class="fragment">An API comes as just a specification of remote calls exposed to the API consumers.</p>
+					</section>
+					<section>
+						<h3>REST</h3>
+						<ul>
+							<li><b>RE</b><span class="fragment">presentational</span></li>
+							<li><b>S</b><span class="fragment">tate</span></li>
+							<li><b>T</b><span class="fragment">ransfer</span></li>
+						</ul>
+						<p class="fragment">An architectural style consisting of a coordinated set of architectural constraints applied to components, connectors, and data elements, within a distributed hypermedia system.</p>
+					</section>
+					<section>
+						<h3>Node JS</h3>
+						<p class="fragment">A software platform for scalable server-side and networking applications.</p>
+						<p class="fragment">Node.js applications are designed to maximize throughput and efficiency, using non-blocking I/O and asynchronous events.</p>
+					</section>
+					<section>
+						<h3>Any question?</h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Are you ready?</h2>
+					</section>
+					<section>
+						<h2>How many time?</h2>
+						<p class="fragment">3 seconds</p>
+						<p>&nbsp;</p>
+						<h2>How many lines?</h2>
+						<p class="fragment">1 shell command</p>
+					</section>
+					<section>
+						<h2>Don't you believe it?</h2>
+						<p class="fragment"><code>sails new ritsiLog && cd $_ && sails generate api user && sails generate api log && sails lift</code></p>
+						<p class="fragment"><a href="https://twitter.com/share" class="twitter-share-button" data-text="API REST en #congresoRITSI: sails new ritsiLog && cd $_ && sails generate api user && sails lift •" data-url="http://kcy.me/11xu0" data-via="jorgecasar" data-size="large" data-count="vertical" data-lang="es">Tweet</a></p>
+					</section>
+				</section>
+				<section>
+					<h1>Demo</h1>
+				</section>
+			</div>
+		</div>
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.min.js"></script>
+		<script src="../javascripts/main.js"></script>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</body>
+</html>
